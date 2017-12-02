@@ -1,0 +1,11 @@
+nguage: csharp
+solution: Eventure.sln
+mono: none
+dotnet: 1.0.3
+dist: trusty
+before_script:
+    - npm install -g bower
+script:
+   - dotnet restore
+   - dotnet build
+   - dotnet test
