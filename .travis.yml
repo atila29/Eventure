@@ -8,4 +8,4 @@ before_script:
 script:
    - dotnet restore
    - dotnet build
-   - dotnet test
+   - dotnet test test/Eventure.Test/Eventure.Test.csproj
