@@ -1,4 +1,4 @@
-nguage: csharp
+language: csharp
 solution: Eventure.sln
 mono: none
 dotnet: 1.0.3
