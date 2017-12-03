@@ -2,10 +2,16 @@
 
 namespace Eventure.Domain.DomainEvents
 {
-    public interface IEvent
+    public interface IEvent : IEvent<Guid, Guid>
     {
-        Guid Id { get; }
-        Guid AggregateId { get; }
+    }
+    
+    public interface IEvent<out TEventId, out TAggregateId>
+        where TEventId : IComparable, IComparable<Guid>, IEquatable<Guid> 
+        where TAggregateId : IComparable, IComparable<Guid>, IEquatable<Guid>
+    {
+        TEventId Id { get; }
+        TAggregateId AggregateId { get; }
         int Version { get; }
     }
 }
