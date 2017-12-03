@@ -2,10 +2,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Mathias Petersen</Authors>
-    <Version>1.2.0-alpha</Version>
+    <Version>1.2.1-alpha</Version>
     <Description>lite framework for cqrs and eventsourcing</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Factory abstraction</PackageReleaseNotes>
+    <PackageReleaseNotes>patch IApplyEvent interface</PackageReleaseNotes>
     <PackageTags>cqrs event command eventsourcing</PackageTags>
   </PropertyGroup>
   <ItemGroup>
