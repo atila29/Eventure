@@ -24,7 +24,7 @@ namespace Eventure.Test.Domain
 
             // Assert
             Assert.NotNull(creater);
-            Assert.IsAssignableFrom<IAggregateRootCreater<TestAggregateRoot, Guid>>(creater);
+            Assert.IsAssignableFrom<IAggregateRootCreater<TestAggregateRoot, Guid, Guid>>(creater);
             Assert.IsType<TestAggregateFactory>(creater);
             Assert.NotNull(aggregate);
             Assert.IsType<TestAggregateRoot>(aggregate);

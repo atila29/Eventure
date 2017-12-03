@@ -7,8 +7,8 @@ namespace Eventure.Domain.DomainEvents
     }
     
     public interface IEvent<out TEventId, out TAggregateId>
-        where TEventId : IComparable, IComparable<Guid>, IEquatable<Guid> 
-        where TAggregateId : IComparable, IComparable<Guid>, IEquatable<Guid>
+        where TEventId : IComparable, IComparable<TEventId>, IEquatable<TEventId> 
+        where TAggregateId : IComparable, IComparable<TAggregateId>, IEquatable<TAggregateId>
     {
         TEventId Id { get; }
         TAggregateId AggregateId { get; }
