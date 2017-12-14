@@ -15,7 +15,7 @@ namespace Eventure.Test.Command
         public CommandTest()
         {
             IServiceCollection services = new ServiceCollection();
-            services.RegisterCommandHandler<TestCommand, TestCommandFactory>();
+            services.RegisterCommandHandler<TestCommand, TestCommandHandler>();
             _serviceProvider = services.BuildServiceProvider();
             _dispatcher = new CommandDispatcher(_serviceProvider);
             TestResult.Works = false;
@@ -25,7 +25,7 @@ namespace Eventure.Test.Command
         public void TestCommand()
         {
             // Arrange
-            var command = new TestCommand();
+            var command = new TestCommand(true);
             
             // Act
             _dispatcher.Dispatch(command);

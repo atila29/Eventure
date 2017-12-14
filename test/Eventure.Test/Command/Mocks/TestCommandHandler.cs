@@ -7,14 +7,10 @@ namespace Eventure.Test.Command.Mocks
     {
         public TestCommand Command { get; set; }
 
-        public TestCommandHandler(TestCommand command)
-        {
-            Command = command;
-        }
 
-        public async Task ExecuteAsync()
+        public async Task ExecuteAsync(TestCommand command)
         {
-            TestResult.Works = true;
+            TestResult.Works = command.Works;
             await Task.CompletedTask;
         }
     }

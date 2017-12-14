@@ -5,13 +5,13 @@ namespace Eventure.Command.Extensions
 {
     public static class RegisterCommandHandlerExtension
     {
-        public static void RegisterCommandHandler<TCommand, TFactory>(this IServiceCollection serviceCollection)
+        public static void RegisterCommandHandler<TCommand, THandler>(this IServiceCollection serviceCollection)
             where TCommand : ICommand
-            where TFactory : class, ICommandHandlerCreater<TCommand, ICommandHandler<TCommand>>
+            where THandler : class, ICommandHandler<TCommand>
         {
             serviceCollection
-                .AddTransient<ICommandHandlerCreater<TCommand, ICommandHandler<TCommand>>,
-                    TFactory>();
+                .AddTransient<ICommandHandler<TCommand>,
+                    THandler>();
         }
     }
 }
