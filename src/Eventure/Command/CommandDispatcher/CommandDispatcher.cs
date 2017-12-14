@@ -16,8 +16,8 @@ namespace Eventure.Command.CommandDispatcher
         
         public async Task Dispatch<TCommand>(TCommand command) where TCommand : ICommand
         {
-            var creater = _provider.GetService<ICommandHandler<TCommand>>();
-            await creater.ExecuteAsync(command);
+            var handler = _provider.GetService<ICommandHandler<TCommand>>();
+            await handler.ExecuteAsync(command);
         }
     }
 }
