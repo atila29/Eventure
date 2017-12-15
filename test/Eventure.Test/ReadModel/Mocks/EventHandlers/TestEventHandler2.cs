@@ -6,11 +6,6 @@ namespace Eventure.Test.ReadModel.Mocks.EventHandlers
 {
     public class TestEventHandler2 : IEventHandler<TestEvent2>
     {
-        public async Task Handle(TestEvent @event)
-        {
-            
-        }
-
         public async Task Handle(TestEvent2 @event)
         {
             TestResult.Works2 = true;

@@ -35,7 +35,7 @@ namespace Eventure.Test.ReadModel
         }
         
         [Fact]
-        public async Task DispatchEventTest()
+        public void DispatchEventTest()
         {
             // Arrange.
             _services.RegisterEventHandler<TestEvent, TestEventHandler>();
@@ -46,7 +46,7 @@ namespace Eventure.Test.ReadModel
             var @event = new TestEvent(Guid.NewGuid(), id, version, testData);
 
             // Act.
-            await provider.GetService<IEventDispatcher>().DispatchEvent(@event);
+            provider.GetService<IEventDispatcher>().DispatchEvent(@event).Wait();
 
             // Assert
             Assert.True(TestResult.Works);
@@ -55,7 +55,7 @@ namespace Eventure.Test.ReadModel
         }
         
         [Fact]
-        public async Task DispatchEventsTest()
+        public void DispatchEventsTest()
         {
             // Arrange.
             _services.RegisterEventHandler<TestEvent, TestEventHandler>();
@@ -70,7 +70,7 @@ namespace Eventure.Test.ReadModel
             var events = new IEvent[]{new TestEvent(Guid.NewGuid(), id, version, testData), new TestEvent2(Guid.NewGuid(), id2, version2, testData2)} ;
 
             // Act.
-            await provider.GetService<IEventDispatcher>().DispatchEvents(events);
+            provider.GetService<IEventDispatcher>().DispatchEvents(events).Wait();
 
             // Assert
             Assert.True(TestResult.Works);
