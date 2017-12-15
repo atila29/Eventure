@@ -1,16 +1,16 @@
 ﻿using System;
 using Eventure.Domain.DomainEvents;
 
-namespace Eventure.Test.ReadModel.Mocks
+namespace Eventure.Test.ReadModel.Mocks.Events
 {
-    public class TestEvent : IEvent
+    public class TestEvent2: IEvent
     {
         public Guid Id { get; }
         public Guid AggregateId { get; }
         public int Version { get; }
         public string EventData { get; }
 
-        public TestEvent(Guid id, Guid aggregateId, int version, string eventData)
+        public TestEvent2(Guid id, Guid aggregateId, int version, string eventData)
         {
             Id = id;
             AggregateId = aggregateId;

@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Eventure.ReadModel.EventHandler;
 using Eventure.ReadModel.Extensions;
 using Eventure.Test.ReadModel.Mocks;
+using Eventure.Test.ReadModel.Mocks.EventHandlers;
+using Eventure.Test.ReadModel.Mocks.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
@@ -57,11 +59,5 @@ namespace Eventure.Test.ReadModel
             Assert.True(TestResult.Works);
             Assert.Equal(testData, TestResult.TestString);
         }
-    }
-    
-    public static class TestResult
-    {
-        public static bool Works { get; set; }
-        public static string TestString { get; set; }
     }
 }
