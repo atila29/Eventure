@@ -17,13 +17,13 @@ namespace Eventure.ReadModel.EventDispatcher
             _provider = provider;
         }
         
-        public async Task DispatchEvent<TEvent>(TEvent @event) where TEvent : IEvent
+        public async Task DispatchEvent<TEvent>(TEvent @event) where TEvent : IEvent<Guid, Guid>
         {
             var handler = _provider.GetService<IEventHandler<TEvent>>();
             await Task.Run(() => handler.Handle(@event));
         }
 
-        public async Task DispatchEvents<TEvent>(IEnumerable<TEvent> events) where TEvent : IEvent
+        public async Task DispatchEvents<TEvent>(IEnumerable<TEvent> events) where TEvent : IEvent<Guid, Guid>
         {
             foreach (var @event in events)
             {
@@ -31,7 +31,7 @@ namespace Eventure.ReadModel.EventDispatcher
             }
         }
         
-        private void ResolveEvent(IEvent @event)
+        private void ResolveEvent(IEvent<Guid, Guid> @event)
         {
             var eventHandlerType = typeof(IEventHandler<>);
 

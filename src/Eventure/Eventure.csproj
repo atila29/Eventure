@@ -2,10 +2,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Mathias Petersen</Authors>
-    <Version>1.4.0-alpha</Version>
+    <Version>1.4.1-alpha</Version>
     <Description>lite framework for cqrs and eventsourcing</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Remove CommandHandler Factory</PackageReleaseNotes>
+    <PackageReleaseNotes>patch EventHandler and EventDispatcher generics</PackageReleaseNotes>
     <PackageTags>cqrs event command eventsourcing</PackageTags>
   </PropertyGroup>
   <ItemGroup>
