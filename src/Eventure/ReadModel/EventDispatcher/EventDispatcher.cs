@@ -19,8 +19,7 @@ namespace Eventure.ReadModel.EventDispatcher
         
         public async Task DispatchEvent<TEvent>(TEvent @event) where TEvent : IEvent<Guid, Guid>
         {
-            var handler = _provider.GetService<IEventHandler<TEvent>>();
-            await Task.Run(() => handler.Handle(@event));
+            await Task.Run(() => ResolveEvent(@event));
         }
 
         public async Task DispatchEvents<TEvent>(IEnumerable<TEvent> events) where TEvent : IEvent<Guid, Guid>
